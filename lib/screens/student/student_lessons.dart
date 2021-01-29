@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imparoo/screens/student/student_profile.dart';
 import 'package:imparoo/screens/student/student_questions.dart';
 
 class StudentLessons extends StatefulWidget {
@@ -24,10 +25,16 @@ class _StudentLessonsState extends State<StudentLessons> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
-                  Icons.person,
-                  size: 40,
-                  color: Colors.blue,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => StudentProfile()));
+                  },
+                  child: Icon(
+                    Icons.person,
+                    size: 40,
+                    color: Colors.blue,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 24.0),
