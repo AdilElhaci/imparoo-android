@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-//AMK
+
 import 'auth/login.dart';
 
 void main() async {
