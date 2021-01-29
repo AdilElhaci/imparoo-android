@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:imparoo/models/Student.dart';
+import 'package:imparoo/screens/student/student_lessons.dart';
 
 // ignore: must_be_immutable
 class StudentLogin extends StatefulWidget {
@@ -206,7 +207,9 @@ class _StudentLoginState extends State<StudentLogin> {
                   ),
                   FlatButton(
                     onPressed: () {
-                      loginControl();
+                      //loginControl(); //Ogrenci girisi
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => StudentLessons()));
                     },
                     child: Container(
                       height: 60,
