@@ -147,7 +147,7 @@ class _StudentPlayTimeState extends State<StudentPlayTime> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        leftMargin -= 10;
+                        if (leftMargin >= 10) leftMargin -= 10;
                       });
                     },
                     child: Container(

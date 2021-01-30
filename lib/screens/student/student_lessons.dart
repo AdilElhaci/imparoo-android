@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:imparoo/screens/student/student_online_class.dart';
 import 'package:imparoo/screens/student/student_profile.dart';
 import 'package:imparoo/screens/student/student_questions.dart';
+import 'package:imparoo/screens/student/student_recorded_lessons.dart';
 
 class StudentLessons extends StatefulWidget {
   StudentLessons({Key key}) : super(key: key);
@@ -225,7 +226,10 @@ class _StudentLessonsState extends State<StudentLessons> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => StudentRecordedLesson()));
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

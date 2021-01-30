@@ -3,6 +3,7 @@ import 'package:imparoo/screens/student/student_lessons.dart';
 import 'package:imparoo/screens/student/student_questions_for_lesson.dart';
 
 import 'student_profile.dart';
+import 'student_recorded_lessons.dart';
 
 class StudentQuestions extends StatefulWidget {
   StudentQuestions({Key key}) : super(key: key);
@@ -145,7 +146,10 @@ class _StudentQuestionsState extends State<StudentQuestions> {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => StudentRecordedLesson()));
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
