@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:imparoo/screens/student/student_lesson_records.dart';
 import 'package:imparoo/screens/student/student_lessons.dart';
 import 'package:imparoo/screens/student/student_questions.dart';
 
 import 'student_profile.dart';
 
-class StudentRecordedLesson extends StatefulWidget {
-  StudentRecordedLesson({Key key}) : super(key: key);
+class StudentLessonRecords extends StatefulWidget {
+  StudentLessonRecords({Key key}) : super(key: key);
 
   @override
-  _StudentRecordedLessonState createState() => _StudentRecordedLessonState();
+  _StudentLessonRecordsState createState() => _StudentLessonRecordsState();
 }
 
-class _StudentRecordedLessonState extends State<StudentRecordedLesson> {
+class _StudentLessonRecordsState extends State<StudentLessonRecords> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,105 +57,103 @@ class _StudentRecordedLessonState extends State<StudentRecordedLesson> {
               width: 300,
               child: Center(
                 child: Text(
-                  "DERS KAYITLARI",
+                  "MATEMATIK DERS KAYITLARI",
                   style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 20,
                       color: Colors.black,
                       fontWeight: FontWeight.w900),
                 ),
               ),
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => StudentLessonRecords()));
-            },
-            child: Container(
-              margin: EdgeInsets.only(top: 20),
-              padding: EdgeInsets.only(left: 10),
-              width: MediaQuery.of(context).size.width - 20,
-              height: 100,
-              decoration: BoxDecoration(
-                color: Colors.red[100],
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("MATEMATIK",
-                      style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w900)),
-                ],
-              ),
-            ),
-          ),
           Container(
-            margin: EdgeInsets.only(top: 20),
-            padding: EdgeInsets.only(left: 10),
-            width: MediaQuery.of(context).size.width - 20,
-            height: 100,
-            decoration: BoxDecoration(
-              color: Colors.red[100],
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            margin: EdgeInsets.all(20),
+            child: Stack(
               children: [
-                Text("TURKCE",
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w900)),
+                Container(
+                  height: 110,
+                  width: MediaQuery.of(context).size.width - 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[400],
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 10, left: 0),
+                      height: 80,
+                      width: 100,
+                      color: Colors.black,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                "Matematik",
+                                style: TextStyle(
+                                    fontSize: 35,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Konu: Toplama",
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                                Text(
+                                  "Sure: 25dk 53sn",
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    margin: EdgeInsets.only(top: 100, left: 140),
+                    padding: EdgeInsets.only(top: 0),
+                    height: 30,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.greenAccent[400],
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "izle",
+                        style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w900),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            padding: EdgeInsets.only(left: 10),
-            width: MediaQuery.of(context).size.width - 20,
-            height: 100,
-            decoration: BoxDecoration(
-              color: Colors.red[100],
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text("FEN BILGISI",
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w900)),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            padding: EdgeInsets.only(left: 10),
-            width: MediaQuery.of(context).size.width - 20,
-            height: 100,
-            decoration: BoxDecoration(
-              color: Colors.red[100],
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text("SOSYAL BILGILER",
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w900)),
-              ],
-            ),
-          )
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
