@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:imparoo/screens/student/student_lessons.dart';
+import 'package:imparoo/screens/student/student_play_time.dart';
 
 class StudentOnlineClass extends StatefulWidget {
   StudentOnlineClass({Key key}) : super(key: key);
@@ -62,7 +63,7 @@ class _StudentOnlineClassState extends State<StudentOnlineClass> {
             MaterialButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => StudentOnlineClass()));
+                    MaterialPageRoute(builder: (_) => StudentPlayTime()));
               },
               child: Container(
                 margin: EdgeInsets.only(top: 10),
