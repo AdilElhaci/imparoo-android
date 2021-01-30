@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imparoo/screens/student/student_online_class.dart';
 import 'package:imparoo/screens/student/student_profile.dart';
 import 'package:imparoo/screens/student/student_questions.dart';
 
@@ -124,7 +125,10 @@ class _StudentLessonsState extends State<StudentLessons> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => StudentOnlineClass()));
+                },
                 child: Container(
                   width: 114,
                   height: 44,
