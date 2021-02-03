@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:imparoo/screens/student/student_online_class.dart';
-import 'package:imparoo/screens/student/student_profile.dart';
+import 'package:imparoo/screens/student/student_lessons.dart';
 import 'package:imparoo/screens/student/student_questions.dart';
 import 'package:imparoo/screens/student/student_recorded_lessons.dart';
 
-class StudentLessons extends StatefulWidget {
-  StudentLessons({Key key}) : super(key: key);
+import 'student_profile.dart';
+
+class StudentQuestionsOfLesson extends StatefulWidget {
+  StudentQuestionsOfLesson({Key key}) : super(key: key);
 
   @override
-  _StudentLessonsState createState() => _StudentLessonsState();
+  _StudentQuestionsOfLessonState createState() =>
+      _StudentQuestionsOfLessonState();
 }
 
-class _StudentLessonsState extends State<StudentLessons> {
+class _StudentQuestionsOfLessonState extends State<StudentQuestionsOfLesson> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,16 +40,6 @@ class _StudentLessonsState extends State<StudentLessons> {
                     color: Colors.blue,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 24.0),
-                  child: Text(
-                    "DERSLER",
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w900),
-                  ),
-                ),
                 Icon(
                   Icons.settings,
                   size: 40,
@@ -59,98 +51,87 @@ class _StudentLessonsState extends State<StudentLessons> {
         ),
         leading: new Container(),
       ),
-      body: Container(
-        padding: EdgeInsets.all(20),
-        child: buildLessonCard(context),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: buildBottomNavBar(),
-    );
-  }
-
-  Column buildLessonCard(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 8.0, bottom: 15),
-          child: Text(
-            "Bugun",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-          ),
-        ),
-        // alttaki container listview in icinde olacak
-        buildLessonDetailCard(context),
-      ],
-    );
-  }
-
-  Container buildLessonDetailCard(BuildContext context) {
-    return Container(
-      height: 130,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-          color: Colors.grey[300],
-          borderRadius: BorderRadius.all(Radius.circular(28))),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0),
+          Center(
+            child: Container(
+              width: 200,
+              child: Center(
+                child: Text(
+                  "MATEMATİK",
+                  style: TextStyle(
+                      fontSize: 34,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Container(
+              width: 200,
+              child: Center(
+                child: Text(
+                  "SORULARI",
+                  style: TextStyle(
+                      fontSize: 34,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+              ),
+            ),
+          ),
+          MaterialButton(
+            onPressed: () {},
+            child: Container(
+              height: 30,
+              width: 120,
+              decoration: BoxDecoration(
+                color: Colors.greenAccent[700],
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              child: Center(
+                child: Text(
+                  "SORU SOR",
+                  style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 10),
+            width: MediaQuery.of(context).size.width - 20,
+            height: 80,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Ders",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  "Matematik",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  "Kalan Sure",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  "13 dakika",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-                ),
+                Text("12 deste arti 6 duzine kac yapar?",
+                    style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w900)),
+                SizedBox(height: 20),
+                Text("3 cevap",
+                    style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w900))
               ],
             ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              MaterialButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => StudentOnlineClass()));
-                },
-                child: Container(
-                  width: 114,
-                  height: 44,
-                  decoration: BoxDecoration(
-                      color: Colors.green[700],
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Center(
-                    child: Text(
-                      "Derse Katıl",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 20),
-                    ),
-                  ),
-                ),
-              ),
-            ],
           )
         ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: buildBottomNavBar(),
     );
   }
 
@@ -165,7 +146,10 @@ class _StudentLessonsState extends State<StudentLessons> {
       child: Row(
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => StudentLessons()));
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -175,7 +159,7 @@ class _StudentLessonsState extends State<StudentLessons> {
                   height: 80,
                   child: Center(
                     child: Image.asset(
-                      "assets/images/sayfalar-buton-dersler-2.png",
+                      "assets/images/sayfalar-buton-dersler 1.png",
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -207,7 +191,7 @@ class _StudentLessonsState extends State<StudentLessons> {
                   height: 80,
                   child: Center(
                     child: Image.asset(
-                      "assets/images/sayfalar-buton-sorular-1.png",
+                      "assets/images/sayfalar-buton-sorular-2 1.png",
                       fit: BoxFit.fill,
                     ),
                   ),

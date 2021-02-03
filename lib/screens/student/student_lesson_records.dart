@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:imparoo/screens/student/student_online_class.dart';
-import 'package:imparoo/screens/student/student_profile.dart';
+import 'package:imparoo/screens/student/student_lessons.dart';
 import 'package:imparoo/screens/student/student_questions.dart';
-import 'package:imparoo/screens/student/student_recorded_lessons.dart';
 
-class StudentLessons extends StatefulWidget {
-  StudentLessons({Key key}) : super(key: key);
+import 'student_profile.dart';
+
+class StudentLessonRecords extends StatefulWidget {
+  StudentLessonRecords({Key key}) : super(key: key);
 
   @override
-  _StudentLessonsState createState() => _StudentLessonsState();
+  _StudentLessonRecordsState createState() => _StudentLessonRecordsState();
 }
 
-class _StudentLessonsState extends State<StudentLessons> {
+class _StudentLessonRecordsState extends State<StudentLessonRecords> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,16 +38,6 @@ class _StudentLessonsState extends State<StudentLessons> {
                     color: Colors.blue,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 24.0),
-                  child: Text(
-                    "DERSLER",
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w900),
-                  ),
-                ),
                 Icon(
                   Icons.settings,
                   size: 40,
@@ -59,98 +49,115 @@ class _StudentLessonsState extends State<StudentLessons> {
         ),
         leading: new Container(),
       ),
-      body: Container(
-        padding: EdgeInsets.all(20),
-        child: buildLessonCard(context),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: buildBottomNavBar(),
-    );
-  }
-
-  Column buildLessonCard(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 8.0, bottom: 15),
-          child: Text(
-            "Bugun",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-          ),
-        ),
-        // alttaki container listview in icinde olacak
-        buildLessonDetailCard(context),
-      ],
-    );
-  }
-
-  Container buildLessonDetailCard(BuildContext context) {
-    return Container(
-      height: 130,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-          color: Colors.grey[300],
-          borderRadius: BorderRadius.all(Radius.circular(28))),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+          Center(
+            child: Container(
+              width: 300,
+              child: Center(
+                child: Text(
+                  "MATEMATIK DERS KAYITLARI",
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(20),
+            child: Stack(
               children: [
-                Text(
-                  "Ders",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                Container(
+                  height: 110,
+                  width: MediaQuery.of(context).size.width - 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[400],
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                  ),
                 ),
-                Text(
-                  "Matematik",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 10, left: 0),
+                      height: 80,
+                      width: 100,
+                      color: Colors.black,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                "Matematik",
+                                style: TextStyle(
+                                    fontSize: 35,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Konu: Toplama",
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                                Text(
+                                  "Sure: 25dk 53sn",
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                Text(
-                  "Kalan Sure",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  "13 dakika",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
-                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    margin: EdgeInsets.only(top: 100, left: 140),
+                    padding: EdgeInsets.only(top: 0),
+                    height: 30,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.greenAccent[400],
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "izle",
+                        style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w900),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              MaterialButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => StudentOnlineClass()));
-                },
-                child: Container(
-                  width: 114,
-                  height: 44,
-                  decoration: BoxDecoration(
-                      color: Colors.green[700],
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Center(
-                    child: Text(
-                      "Derse Katıl",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 20),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          )
         ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: buildBottomNavBar(),
     );
   }
 
@@ -165,7 +172,10 @@ class _StudentLessonsState extends State<StudentLessons> {
       child: Row(
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => StudentLessons()));
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -175,7 +185,7 @@ class _StudentLessonsState extends State<StudentLessons> {
                   height: 80,
                   child: Center(
                     child: Image.asset(
-                      "assets/images/sayfalar-buton-dersler-2.png",
+                      "assets/images/sayfalar-buton-dersler 1.png",
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -226,10 +236,7 @@ class _StudentLessonsState extends State<StudentLessons> {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => StudentRecordedLesson()));
-            },
+            onTap: () {},
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -239,7 +246,7 @@ class _StudentLessonsState extends State<StudentLessons> {
                   height: 80,
                   child: Center(
                     child: Image.asset(
-                      "assets/images/sayfalar-buton-kayit 1.png",
+                      "assets/images/sayfalar-buton-kayit-2 1.png",
                       fit: BoxFit.fill,
                     ),
                   ),
